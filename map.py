@@ -5,14 +5,14 @@ from utils import randbool,randcell,randcell2
 # 2 - река
 # 3 - госпиталь
 # 4 - upgrade shop
-# 5 - jujym
+# 5 - огонь
 
 CELL_TYPES = "🟩🎄🌊🏥🏦🔥"
 
 TREE_BONUS = 100
-# 5000
+
 UPGRADE_COST = 100
-# 10000
+
 LIVE_COST = 100
 
 class Map:    
