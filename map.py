@@ -93,12 +93,26 @@ class Map:
         if self.cells[cx][cy] == 1:
             self.cells[cx][cy] = 5
 
-    def update_fires(self):
+    def update_fires(self,helico):
+        fire_cells = []
         for ri in range(self.h):
             for ci in range(self.w):
                 cell = self.cells[ri][ci]
                 if cell == 5:
+                    helico.score -= TREE_BONUS
                     self.cells[ri][ci] = 0
+                    fire_cells.append((ri,ci))
+
+        for i in range(len(fire_cells)):
+            ri, ci = fire_cells[i][0],fire_cells[i][1]
+            moves = [(-1, 0), (0, 1), (1, 0), (0, -1), (1, 1), (1, -1), (-1, -1), (-1, 1)]
+            for i in range(len(moves)):
+                dx, dy = moves[i][0], moves[i][1]
+                x, y = ri + dx, ci + dy
+                if x != self.w and y != self.h:
+                    if self.cells[x][y] == 1:
+                        self.cells[x][y] = 5
+
         for i in range(5):
             self.add_fire()
 
