@@ -109,7 +109,7 @@ class Map:
             for i in range(len(moves)):
                 dx, dy = moves[i][0], moves[i][1]
                 x, y = ri + dx, ci + dy
-                if x != self.w and y != self.h:
+                if x != self.h and y != self.w:
                     if self.cells[x][y] == 1:
                         self.cells[x][y] = 5
 
